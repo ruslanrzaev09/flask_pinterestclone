@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ImageApp - Пост
+{% endblock %}
+
+{% block main %}
+<main>
+    <div class="posts">
+        <a href="">
+            <img src="{{ url_for('static', filename='uploads/' + post.filename) }}" alt="{{ post.filename }}">
+        </a>
+        <h3>Описание:</h3>
+        <p>{{ post.description }}</p>
+    </div>
+</main>
+{% endblock %}

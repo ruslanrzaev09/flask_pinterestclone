@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body style="padding: 20px 30px;">
+    <header class="header">
+        <a href="/">
+            <h1>ImageApp</h1>
+        </a>
+        <form method="post" action="{{ url_for('search') }}">
+            <input type="text" placeholder="Введите что-нибудь..." name="name">
+            <button type="submit">Поиск</button>
+        </form>
+        <div>
+            {% if current_user.is_authenticated %}
+            <div class="user">
+                <p>{{ current_user.username }}</p>
+                <a href="{{ url_for('logout') }}">Выйти</a>
+                <a href="{{ url_for('add') }}">+ Добавить</a>
+            </div>
+            {% else %}
+            <a href="{{ url_for('login') }}">Войти</a>
+            <a href="{{ url_for('register') }}">Зарегестрироваться</a>
+            {% endif %}
+        </div>
+    </header>
+    {% block main %}
+    {% endblock %}
+</body>
+
+</html>

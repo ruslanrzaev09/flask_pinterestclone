@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ImageApp - Add Post
+{% endblock %}
+
+{% block main %}
+<div class="forms">
+    <form method="post" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <p>{{ form.image.label }}</p>
+        <p>{{ form.image() }}</p>
+
+        <p>{{ form.description.label }}</p>
+        <p>{{ form.description }}</p>
+        <p>{{ form.tags }}</p>
+
+        <button type="submit">
+            Сохранить
+        </button>
+    </form>
+</div>
+{% endblock %}

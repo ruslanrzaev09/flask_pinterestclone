@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ImageApp - Search
+{% endblock %}
+
+{% block main %}
+{% for image in images %}
+<main>
+    <div class="posts">
+        {% for image in images %}
+        <a href="{{ url_for('post', id=image.id) }}" class="post">
+            <img src="{{ url_for('static', filename='uploads/' + image.filename) }}" alt="{{ image.filename }}">
+        </a>
+        {% endfor %}
+    </div>
+</main>
+{% endfor %}
+{% endblock %}
